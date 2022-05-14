@@ -7,11 +7,13 @@ public class User {
     private String username;
     private String password;
     private String role;
+    private int daysLeft;
 
     public User(String username, String password, String role) {
         this.username = username;
         this.password = password;
         this.role = role;
+        daysLeft=0;
     }
 
     public User() {
@@ -20,6 +22,8 @@ public class User {
     public String getUsername() {
         return username;
     }
+
+    public int getDaysLeft(){return daysLeft;}
 
     public void setUsername(String username) {
         this.username = username;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
+          vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
+          fx:controller="org.loose.fis.sre.controllers.MembershipsController">
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+    </padding>
+
+
+
+    <Label text="Membership:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+    <ChoiceBox fx:id="membership" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    </ChoiceBox>
+
+    <Label text="Your membership will expire in:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <Text fx:id="daysLeft" text="0"  GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+</GridPane>
