@@ -36,6 +36,7 @@ public class LogInController {
     public void handleLogInAction() {
         try {
             UserService.checkValidUser(usernameField.getText(), passwordField.getText());
+
             registrationMessage.setText("Valid Account!");
 
         } catch (InvalidAccountException e) {
@@ -45,10 +46,22 @@ public class LogInController {
 
         if (Objects.equals(role.getValue(), "Client")) try {
             Parent root;
+
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/welcome.fxml"));
             root = loader.load();
             WelcomeController welcomeController = loader.getController();
             welcomeController.refreshClase();
+
+            loader = new FXMLLoader(getClass().getResource("/memberships.fxml"));
+            root = loader.load();
+            MembershipsController membershipsController = loader.getController();
+            membershipsController.setUsername(usernameField.getText());
+            membershipsController.setDaysLeft();
+
+
+
+
 
             Stage stage = new Stage();
             stage.setTitle("GymApp");

@@ -25,9 +25,19 @@ public class UserService {
         userRepository = database.getRepository(User.class);
     }
 
+
+
+    public static int getDaysLeft(String username){
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername()))
+                return user.getDaysLeft();
+        }
+            return 0;
+    }
+
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
-        userRepository.insert(new User(username, encodePassword(username, password), role));
+        userRepository.insert(new User(0,username, encodePassword(username, password), role));
     }
 
     public static void checkValidUser(String username, String password) throws InvalidAccountException {
@@ -59,6 +69,9 @@ public class UserService {
         return new String(hashedPassword, StandardCharsets.UTF_8)
                 .replace("\"", ""); //to be able to save in JSON format
     }
+
+
+
 
     private static MessageDigest getMessageDigest() {
         MessageDigest md;
