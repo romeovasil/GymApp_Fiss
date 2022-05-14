@@ -9,11 +9,11 @@ public class User {
     private String role;
     private int daysLeft;
 
-    public User(String username, String password, String role) {
+    public User(int daysLeft ,String username, String password, String role) {
         this.username = username;
         this.password = password;
         this.role = role;
-        daysLeft=0;
+        daysLeft=daysLeft;
     }
 
     public User() {
