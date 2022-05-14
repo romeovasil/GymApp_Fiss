@@ -45,7 +45,11 @@ public class LogInController {
 
         if (Objects.equals(role.getValue(), "Client")) try {
             Parent root;
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("welcome.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/welcome.fxml"));
+            root = loader.load();
+            WelcomeController welcomeController = loader.getController();
+            welcomeController.refreshClase();
+
             Stage stage = new Stage();
             stage.setTitle("GymApp");
             stage.setScene(new Scene(root, 300, 300));
@@ -55,6 +59,11 @@ public class LogInController {
         }
         else {
             try {
+
+
+
+
+
                 Parent root;
                 root = FXMLLoader.load(getClass().getClassLoader().getResource("managerChoice.fxml"));
                 Stage stage = new Stage();

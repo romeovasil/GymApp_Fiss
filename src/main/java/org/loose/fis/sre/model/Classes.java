@@ -47,6 +47,12 @@ public class Classes {
         return time != null ? time.equals(clasa.time) : clasa.time == null;
     }
 
+    @Override
+    public String toString()
+    {
+        return this.time +" : "+ this.day + " : " + this.name;
+    }
+
 
 
 
