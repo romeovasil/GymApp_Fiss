@@ -11,6 +11,8 @@ import org.loose.fis.sre.model.User;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import static org.loose.fis.sre.services.FileSystemService.getPathToFile;
@@ -59,6 +61,17 @@ public class ClassesService {
             if (Objects.equals(name, clasa.getName()) && Objects.equals(day,clasa.getDay()) && Objects.equals(time,clasa.getTime()))
                 throw new ClasaAlreadyExistsException();
         }
+    }
+
+    public static List<String> getClassesList()  {
+        List<String> tempList =new ArrayList<>();
+
+        for (Classes clasa : clasaRepository.find()) {
+            tempList.add(clasa.toString());
+        }
+
+
+        return tempList;
     }
 
 

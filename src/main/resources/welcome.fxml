@@ -11,22 +11,13 @@
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
 
+    <Label text="Available classes" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <ListView fx:id="luni" layoutY="40 " prefWidth="500" prefHeight="100" GridPane.rowIndex="2"/>
 
-    <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
 
-    <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-    <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
 
-    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-    <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
 
-    <ChoiceBox fx:id="role" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-    </ChoiceBox>
 
-    <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button  text="Register"/>
-    </HBox>
 </GridPane>
