@@ -11,8 +11,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.loose.fis.sre.exceptions.ClasaAlreadyExistsException;
+import org.loose.fis.sre.exceptions.ReqAlreadyExistsException;
 import org.loose.fis.sre.model.Classes;
 import org.loose.fis.sre.services.ClassesService;
+import org.loose.fis.sre.services.ReqService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,7 +29,12 @@ public class WelcomeController {
 
     private List<String> listLuni =new ArrayList<>();
 
+    private String selectedC ;
 
+    private String username;
+
+    @FXML
+    private Text reqMessage;
 
 
     public void refreshClase() {
@@ -35,6 +42,29 @@ public class WelcomeController {
         luni.getItems().addAll(listLuni);
     }
 
+
+    @FXML
+
+    public void selectedClass(){
+        this.selectedC=luni.getSelectionModel().getSelectedItem();
+    }
+
+    public void setUsername(String username)
+    {
+        this.username=username;
+    }
+
+    @FXML
+    public void handleClickBookTheClass(){
+        try {
+            ReqService.addReq(this.username, this.selectedC);
+            reqMessage.setText("Req sent");
+        }
+        catch (ReqAlreadyExistsException e)
+        {
+            reqMessage.setText(e.getMessage());
+        }
+    }
 
     @FXML
     public void handleClickMembershipsAction() throws IOException {

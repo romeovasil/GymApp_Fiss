@@ -61,6 +61,7 @@ public class LogInController {
             root = loader.load();
             WelcomeController welcomeController = loader.getController();
             welcomeController.refreshClase();
+            welcomeController.setUsername(usernameField.getText());
 
 
 
