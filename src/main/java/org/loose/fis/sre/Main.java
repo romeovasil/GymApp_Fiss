@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.loose.fis.sre.services.ClassesService;
 import org.loose.fis.sre.services.FileSystemService;
+import org.loose.fis.sre.services.ReqService;
 import org.loose.fis.sre.services.UserService;
 
 import java.nio.file.Files;
@@ -18,6 +19,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
         UserService.initDatabase();
+        ReqService.initDatabase();
         ClassesService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("StartPage.fxml"));
         primaryStage.setTitle("Registration Example");

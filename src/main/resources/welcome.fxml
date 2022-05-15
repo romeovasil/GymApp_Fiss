@@ -12,10 +12,20 @@
     </padding>
 
     <Label text="Available classes" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-    <ListView fx:id="luni" layoutY="40 " prefWidth="500" prefHeight="100" GridPane.rowIndex="2"/>
+    <ListView fx:id="luni" layoutY="40 " prefWidth="500" prefHeight="300" GridPane.columnIndex="1" GridPane.rowIndex="2" onMouseClicked="#selectedClass"/>
+
     <HBox alignment="bottom_right" spacing="40"  prefHeight="100" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button onAction="#handleClickMembershipsAction" text="Memberships"/>
     </HBox>
+
+
+
+
+
+    <HBox alignment="bottom_right" spacing="40"  prefHeight="100" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="7">
+        <Button  onAction="#handleClickBookTheClass" text="Book the class"/>
+    </HBox>
+    <Text fx:id="reqMessage" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
 
 
 
