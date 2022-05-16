@@ -1,9 +1,12 @@
 package org.loose.fis.sre.services;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
-import org.loose.fis.sre.exceptions.InvalidAccountException;
-import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.sre.exceptions.*;
 import org.loose.fis.sre.model.User;
 
 import java.nio.charset.StandardCharsets;
@@ -35,16 +38,31 @@ public class UserService {
             return 0;
     }
 
+    @FXML
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
-        userRepository.insert(new User(0,username, encodePassword(username, password), role));
+        userRepository.insert(new User(0,username, encodePassword(username, password), (String)role));
     }
 
-    public static void checkValidUser(String username, String password) throws InvalidAccountException {
+    public static  void checkUsername(String username) throws MissingUsernameException {
+        if ( username.equals("") )
+                throw new MissingUsernameException();
+    }
+    public static  void checkPassword(String password) throws BadPasswordException{
+        if (password.length()<=3 )
+            throw new BadPasswordException();
+    }
+    public static  void checkRole(ChoiceBox role) throws MissingRoleException{
+       if (role.getSelectionModel().isEmpty())
+            throw new MissingRoleException();
+    }
+
+
+    public static void checkValidUser(String username, String password , String role) throws InvalidAccountException {
         int ok=0;
         String pass = encodePassword(username,password);
         for (User user : userRepository.find()) {
-            if (Objects.equals(username, user.getUsername()) && Objects.equals(pass,user.getPassword()))
+            if (Objects.equals(username, user.getUsername()) && Objects.equals(pass,user.getPassword()) && Objects.equals(role,user.getRole()))
                 ok =1;
         }
         if ( ok ==0){
