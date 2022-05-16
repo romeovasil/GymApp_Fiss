@@ -57,6 +57,8 @@ public class LogInController {
             membershipsController.setDaysLeft();
 
 
+
+
             loader = new FXMLLoader(getClass().getResource("/welcome.fxml"));
             root = loader.load();
             WelcomeController welcomeController = loader.getController();
@@ -77,10 +79,9 @@ public class LogInController {
             try {
 
 
+                Parent root ;
 
 
-
-                Parent root;
                 root = FXMLLoader.load(getClass().getClassLoader().getResource("managerChoice.fxml"));
                 Stage stage = new Stage();
                 stage.setTitle("ManagerChoice");
