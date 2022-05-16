@@ -9,8 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.loose.fis.sre.exceptions.InvalidAccountException;
-import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.sre.exceptions.*;
 import org.loose.fis.sre.services.UserService;
 
 import java.io.IOException;
@@ -35,62 +34,88 @@ public class LogInController {
     @FXML
     public void handleLogInAction() {
         try {
-            UserService.checkValidUser(usernameField.getText(), passwordField.getText());
+            UserService.checkUsername(usernameField.getText());
+            UserService.checkPassword(passwordField.getText());
+            UserService.checkRole(role);
+            UserService.checkValidUser(usernameField.getText(), passwordField.getText(),(String) role.getValue());
 
             registrationMessage.setText("Valid Account!");
 
-        } catch (InvalidAccountException e) {
-            registrationMessage.setText(e.getMessage());
-        }
 
-
-        if (Objects.equals(role.getValue(), "Client")) try {
-            Parent root;
+            if (Objects.equals(role.getValue(), "Client")) try {
+                Parent root;
 
 
 
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/memberships.fxml"));
-            root = loader.load();
-            MembershipsController membershipsController = loader.getController();
-            membershipsController.setUsername(usernameField.getText());
-            membershipsController.setDaysLeft();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/memberships.fxml"));
+                root = loader.load();
+                MembershipsController membershipsController = loader.getController();
+                membershipsController.setUsername(usernameField.getText());
+                membershipsController.setDaysLeft();
+
+
+                loader = new FXMLLoader(getClass().getResource("/welcome.fxml"));
+                root = loader.load();
+                WelcomeController welcomeController = loader.getController();
+                welcomeController.refreshClase();
+                welcomeController.setUsername(usernameField.getText());
 
 
 
 
-            loader = new FXMLLoader(getClass().getResource("/welcome.fxml"));
-            root = loader.load();
-            WelcomeController welcomeController = loader.getController();
-            welcomeController.refreshClase();
-            welcomeController.setUsername(usernameField.getText());
-
-
-
-
-            Stage stage = new Stage();
-            stage.setTitle("GymApp");
-            stage.setScene(new Scene(root, 300, 300));
-            stage.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        else {
-            try {
-
-
-                Parent root ;
-
-
-                root = FXMLLoader.load(getClass().getClassLoader().getResource("managerChoice.fxml"));
                 Stage stage = new Stage();
-                stage.setTitle("ManagerChoice");
+                stage.setTitle("GymApp");
                 stage.setScene(new Scene(root, 300, 300));
                 stage.show();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
 
+            else if (Objects.equals(role.getValue(), "Admin")){
+                try {
+
+
+
+
+
+                    Parent root;
+                    root = FXMLLoader.load(getClass().getClassLoader().getResource("managerChoice.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("ManagerChoice");
+                    stage.setScene(new Scene(root, 300, 300));
+                    stage.show();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+            else
+            {
+                registrationMessage.setText("Select the user type!");
+            }
+
+
+
+
+        } catch (InvalidAccountException e) {
+            registrationMessage.setText(e.getMessage());
         }
+
+        catch (MissingUsernameException e)
+        {
+            registrationMessage.setText(e.getMessage());
+        }
+        catch (BadPasswordException e)
+        {
+            registrationMessage.setText(e.getMessage());
+        }
+        catch (MissingRoleException e)
+        {
+            registrationMessage.setText(e.getMessage());
+        }
+
+
+
     }
 }
