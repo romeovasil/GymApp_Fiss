@@ -27,9 +27,6 @@
     </HBox>
     <Text fx:id="reqMessage" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
 
-    <HBox alignment="bottom_right" spacing="40"  prefHeight="100" prefWidth="200" GridPane.columnIndex="0" GridPane.rowIndex="9">
-        <Button  onAction="#handleClickReqStatus" text="Requests status"/>
-    </HBox>
 
 
 
