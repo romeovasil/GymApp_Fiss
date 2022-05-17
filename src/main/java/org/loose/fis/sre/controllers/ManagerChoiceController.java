@@ -34,6 +34,34 @@ public class ManagerChoiceController {
     }
 
     @FXML
+    public void handleClickViewReqAction() throws IOException {
+        try {
+            Parent root;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/managerViewReq.fxml"));
+            root = loader.load();
+            ManagerViewReqController managerViewReqController = loader.getController();
+            managerViewReqController.refreshReq();
+
+
+//            root = FXMLLoader.load(getClass().getClassLoader().getResource("managerViewReq.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Requests");
+            stage.setScene(new Scene(root, 300, 300));
+            stage.show();
+        }
+        catch(IOException ex)
+        {
+            ex.printStackTrace();
+        }
+
+
+
+    }
+
+
+
+
+    @FXML
     public void handleClickAddClassAction() throws IOException {
         try {
             Parent root;

@@ -10,6 +10,8 @@ public class Requests {
     private String username;
     private String clasa;
 
+    private String status;
+
 
     public Requests(int id,String username, String clasa) {
         this.id=id;
@@ -19,6 +21,11 @@ public class Requests {
     }
     public  Requests(){
 
+    }
+
+    public void setStatus(String status)
+    {
+        this.status=status;
     }
 
     public String getUsername(){

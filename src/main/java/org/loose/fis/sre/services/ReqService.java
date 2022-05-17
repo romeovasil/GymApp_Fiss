@@ -44,9 +44,22 @@ public class ReqService {
 
     private static void checkReqDoesNotAlreadyExist(String username , String clasa) throws ReqAlreadyExistsException {
         for (Requests req : reqRepository.find()) {
-            if (Objects.equals(username, req.getUsername()) && Objects.equals(clasa,req.getClasa()) )
+            if (Objects.equals(username, req.getUsername()) && Objects.equals(clasa,req.getClasa().toString()) )
                 throw new ReqAlreadyExistsException();
         }
+    }
+
+
+
+    public static List<String> getReqList()  {
+        List<String> tempList =new ArrayList<>();
+
+        for (Requests req : reqRepository.find()) {
+            tempList.add(req.toString());
+        }
+
+
+        return tempList;
     }
 
 

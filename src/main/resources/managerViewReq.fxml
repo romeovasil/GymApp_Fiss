@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
+          vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
+          fx:controller="org.loose.fis.sre.controllers.ManagerViewReqController">
+
+    <Label text="Requests" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <ListView fx:id="req" layoutY="40 " prefWidth="300" prefHeight="100" GridPane.columnIndex="2" GridPane.rowIndex="2" onMouseClicked="#selectedReq" />
+
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="4">
+        <Button onAction="#acceptReq" text="Accept"/>
+    </HBox>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="5" GridPane.rowIndex="4">
+        <Button onAction="#declineReq" text="Decline"/>
+    </HBox>
+
+
+</GridPane>

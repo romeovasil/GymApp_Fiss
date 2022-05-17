@@ -23,6 +23,11 @@
         <Button  text="Delete Class"/>
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
-        <Button onAction="#handleClickViewClassesAction" text="View Classes / User Interface"/>
+        <Button onAction="#handleClickViewClassesAction" text="View Classes"/>
+    </HBox>
+
+
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Button onAction="#handleClickViewReqAction" text="View requests"/>
     </HBox>
 </GridPane>
