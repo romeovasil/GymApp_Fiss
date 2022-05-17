@@ -7,6 +7,7 @@ import org.loose.fis.sre.exceptions.ReqAlreadyExistsException;
 import org.loose.fis.sre.model.Classes;
 import org.loose.fis.sre.model.Requests;
 
+import javax.print.attribute.standard.ReferenceUriSchemesSupported;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -18,7 +19,7 @@ public class ReqService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("requests5.db").toFile())
+                .filePath(getPathToFile("requests9.db").toFile())
                 .openOrCreate("req", "req");
 
         reqRepository = database.getRepository(Requests.class);
@@ -33,6 +34,20 @@ public class ReqService {
         return nr;
     }
 
+
+    public static void addStatus(String reqString,String status)
+    {
+        for (Requests req : reqRepository.find()) {
+            if (Objects.equals(req.toString(),reqString))
+            {
+
+                req.setStatus(status);
+                System.out.println(req.getStatus());
+                reqRepository.update(req);
+            }
+        }
+
+    }
 
 
     public static void addReq(String username,String clasa) throws ReqAlreadyExistsException {
@@ -51,11 +66,24 @@ public class ReqService {
 
 
 
-    public static List<String> getReqList()  {
-        List<String> tempList =new ArrayList<>();
+    public static List<Requests> getReqList()  {
+        List<Requests> tempList =new ArrayList<>();
 
         for (Requests req : reqRepository.find()) {
-            tempList.add(req.toString());
+            tempList.add(req);
+        }
+
+
+        return tempList;
+    }
+
+    public static List<Requests> getReqWithStatusList(String username)  {
+        List<Requests> tempList =new ArrayList<>();
+
+        for (Requests req : reqRepository.find()) {
+            if (Objects.equals(req.getUsername(),username)){
+                tempList.add(req);
+            }
         }
 
 

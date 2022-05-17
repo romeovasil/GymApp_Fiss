@@ -17,6 +17,8 @@ public class Requests {
         this.id=id;
         this.username = username;
         this.clasa=clasa;
+        this.status=" pending...";
+
 
     }
     public  Requests(){
@@ -27,6 +29,12 @@ public class Requests {
     {
         this.status=status;
     }
+
+    public String getStatus()
+    {
+        return this.status;
+    }
+
 
     public String getUsername(){
         return this.username;
