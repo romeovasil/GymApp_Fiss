@@ -94,6 +94,31 @@ public class WelcomeController {
 
     }
 
+    @FXML
+    public void handleClickReqStatus() throws IOException {
+        try {
+            Parent root;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/requestsStatus.fxml"));
+            root = loader.load();
+            RequestsStatusController requestsStatusController = loader.getController();
+            requestsStatusController.refreshStatus(this.username);
+
+
+
+            Stage stage = new Stage();
+            stage.setTitle("Requests status");
+            stage.setScene(new Scene(root, 300, 300));
+            stage.show();
+        }
+        catch(IOException ex)
+        {
+            ex.printStackTrace();
+        }
+
+
+
+    }
+
 
 
 }
