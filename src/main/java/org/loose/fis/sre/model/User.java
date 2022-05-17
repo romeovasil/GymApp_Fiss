@@ -2,11 +2,15 @@ package org.loose.fis.sre.model;
 
 import org.dizitart.no2.objects.Id;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     @Id
     private String username;
     private String password;
     private String role;
+    private List<String> statusList ;
     private int daysLeft;
 
     public User(int daysLeft ,String username, String password, String role) {
@@ -14,9 +18,15 @@ public class User {
         this.password = password;
         this.role = role;
         daysLeft=daysLeft;
+        statusList = new ArrayList<>();
     }
 
     public User() {
+    }
+
+    public void addStatus(String status)
+    {
+            statusList.add(status);
     }
 
     public String getUsername() {
