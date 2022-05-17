@@ -27,7 +27,7 @@ public class WelcomeController {
     @FXML
     private ListView<String> luni = new ListView<>() ;
 
-    private List<String> listLuni =new ArrayList<>();
+    private List<Classes> listLuni =new ArrayList<>();
 
     private String selectedC ;
 
@@ -37,9 +37,16 @@ public class WelcomeController {
     private Text reqMessage;
 
 
+    private List <String> listaString = new ArrayList<>();
+
+
     public void refreshClase() {
         listLuni=ClassesService.getClassesList();
-        luni.getItems().addAll(listLuni);
+        for (Classes clasa : listLuni) {
+            listaString.add(clasa.toString());
+        }
+        luni.getItems().addAll(listaString);
+
     }
 
 
@@ -70,6 +77,8 @@ public class WelcomeController {
     public void handleClickMembershipsAction() throws IOException {
         try {
             Parent root;
+
+
             root = FXMLLoader.load(getClass().getClassLoader().getResource("memberships.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Memberships");

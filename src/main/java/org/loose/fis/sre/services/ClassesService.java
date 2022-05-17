@@ -63,11 +63,11 @@ public class ClassesService {
         }
     }
 
-    public static List<String> getClassesList()  {
-        List<String> tempList =new ArrayList<>();
+    public static List<Classes> getClassesList()  {
+        List<Classes> tempList =new ArrayList<>();
 
         for (Classes clasa : clasaRepository.find()) {
-            tempList.add(clasa.toString());
+            tempList.add(clasa);
         }
 
 

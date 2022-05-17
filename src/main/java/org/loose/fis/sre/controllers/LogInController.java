@@ -48,18 +48,16 @@ public class LogInController {
 
 
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/memberships.fxml"));
-                root = loader.load();
-                MembershipsController membershipsController = loader.getController();
-                membershipsController.setUsername(usernameField.getText());
-                membershipsController.setDaysLeft();
 
 
-                loader = new FXMLLoader(getClass().getResource("/welcome.fxml"));
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/welcome.fxml"));
                 root = loader.load();
                 WelcomeController welcomeController = loader.getController();
                 welcomeController.refreshClase();
                 welcomeController.setUsername(usernameField.getText());
+
+
 
 
 
