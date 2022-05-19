@@ -27,11 +27,26 @@ public class ClassesService {
 
         clasaRepository = database.getRepository(Classes.class);
     }
+    public static void deleteClass(String deletedClass) {
+        for (Classes clasa : clasaRepository.find()) {
+            if (Objects.equals(clasa.toString(), deletedClass)) {
+                    clasaRepository.remove(clasa);
+                    clasaRepository.update(clasa);
+            }
+
+        }
+    }
 
     private static int maxId (){
         int nr =0;
+
         for (Classes clasa : clasaRepository.find()) {
             nr++;
+
+        }
+        if(nr<Classes.getIdMax()){
+            nr = Classes.getIdMax();
+            Classes.setIdMax(nr+1);
 
         }
         return nr;

@@ -68,7 +68,9 @@ public class ManagerChoiceController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/deleteClass.fxml"));
             root = loader.load();
             DeleteClassController  deleteClassController = loader.getController();
+            deleteClassController.setSelectedClassNull();
             deleteClassController.refreshClase();
+
 
 //            root = FXMLLoader.load(getClass().getClassLoader().getResource("managerViewClasses.fxml"));
             Stage stage = new Stage();
