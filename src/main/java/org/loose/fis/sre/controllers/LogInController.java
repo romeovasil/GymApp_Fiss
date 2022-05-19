@@ -82,7 +82,7 @@ public class LogInController {
                     root = FXMLLoader.load(getClass().getClassLoader().getResource("managerChoice.fxml"));
                     Stage stage = new Stage();
                     stage.setTitle("ManagerChoice");
-                    stage.setScene(new Scene(root, 300, 300));
+                    stage.setScene(new Scene(root, 700 , 350));
                     stage.show();
                 } catch (IOException ex) {
                     ex.printStackTrace();
