@@ -22,7 +22,7 @@ public class ClassesService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("classes10.db").toFile())
+                .filePath(getPathToFile("classes11.db").toFile())
                 .openOrCreate("clasa", "clasa");
 
         clasaRepository = database.getRepository(Classes.class);
