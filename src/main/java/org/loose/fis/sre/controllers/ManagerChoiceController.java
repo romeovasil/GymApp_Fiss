@@ -41,12 +41,14 @@ public class ManagerChoiceController {
             root = loader.load();
             ManagerViewReqController managerViewReqController = loader.getController();
             managerViewReqController.refreshReq();
+            managerViewReqController.setSelectedReqNull();
 
 
 //            root = FXMLLoader.load(getClass().getClassLoader().getResource("managerViewReq.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Requests");
-            stage.setScene(new Scene(root, 300, 300));
+
+            stage.setScene(new Scene(root, 700 , 350));
             stage.show();
         }
         catch(IOException ex)
