@@ -11,6 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.loose.fis.sre.exceptions.ClasaAlreadyExistsException;
+import org.loose.fis.sre.exceptions.NoReqSelected;
 import org.loose.fis.sre.exceptions.ReqAlreadyExistsException;
 import org.loose.fis.sre.model.Classes;
 import org.loose.fis.sre.services.ClassesService;
@@ -38,7 +39,9 @@ public class WelcomeController {
 
 
     private List <String> listaString = new ArrayList<>();
-
+    public void setSelectedReqNull(){
+        this.selectedC= "";
+    }
 
     public void refreshClase() {
         listLuni=ClassesService.getClassesList();
@@ -64,15 +67,28 @@ public class WelcomeController {
     @FXML
     public void handleClickBookTheClass(){
         try {
+            checkSelectedReq();
             ReqService.addReq(this.username, this.selectedC);
             reqMessage.setText("Req sent");
+            this.selectedC="";
+        }
+        catch (NoReqSelected e )
+        {
+            reqMessage.setText(e.getMessage());
+            this.selectedC= "";
         }
         catch (ReqAlreadyExistsException e)
         {
             reqMessage.setText(e.getMessage());
+            this.selectedC= "";
         }
     }
-
+    private void checkSelectedReq() throws NoReqSelected {
+        if (Objects.equals(this.selectedC,""))
+        {
+            throw new NoReqSelected();
+        }
+    }
     @FXML
     public void handleClickMembershipsAction() throws IOException {
         try {

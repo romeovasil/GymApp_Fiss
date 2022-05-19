@@ -64,7 +64,8 @@ public class LogInController {
 
                 Stage stage = new Stage();
                 stage.setTitle("GymApp");
-                stage.setScene(new Scene(root, 300, 300));
+                welcomeController.setSelectedReqNull();
+                stage.setScene(new Scene(root, 700, 350));
                 stage.show();
             } catch (IOException ex) {
                 ex.printStackTrace();

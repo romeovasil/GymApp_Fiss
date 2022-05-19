@@ -19,7 +19,7 @@ public class ReqService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("requests10.db").toFile())
+                .filePath(getPathToFile("requests11.db").toFile())
                 .openOrCreate("req", "req");
 
         reqRepository = database.getRepository(Requests.class);
