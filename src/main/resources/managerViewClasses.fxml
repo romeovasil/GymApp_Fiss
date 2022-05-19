@@ -13,13 +13,4 @@
 
     <Label text="Available classes" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
     <ListView fx:id="luni" layoutY="40 " prefWidth="500" prefHeight="300" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-
-
-
-
-
-
-
-
-
 </GridPane>

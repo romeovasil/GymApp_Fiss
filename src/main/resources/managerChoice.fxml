@@ -16,11 +16,9 @@
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button onAction="#handleClickAddClassAction" text="Add Class"/>
     </HBox>
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
-        <Button  text="Edit Class"/>
-    </HBox>
+
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="9">
-        <Button  text="Delete Class"/>
+        <Button onAction="#handleClickDeleteClass"  text="Delete Class"/>
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <Button onAction="#handleClickViewClassesAction" text="View Classes"/>

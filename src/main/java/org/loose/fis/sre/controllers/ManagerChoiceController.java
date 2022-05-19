@@ -23,7 +23,7 @@ public class ManagerChoiceController {
 //            root = FXMLLoader.load(getClass().getClassLoader().getResource("managerViewClasses.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Classes");
-            stage.setScene(new Scene(root, 300 , 300));
+            stage.setScene(new Scene(root, 700 , 350));
             stage.show();
         }
         catch(IOException ex)
@@ -60,7 +60,28 @@ public class ManagerChoiceController {
 
     }
 
+    @FXML
+    public void handleClickDeleteClass() throws IOException {
+        try {
 
+            Parent root;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/deleteClass.fxml"));
+            root = loader.load();
+            DeleteClassController  deleteClassController = loader.getController();
+            deleteClassController.refreshClase();
+
+//            root = FXMLLoader.load(getClass().getClassLoader().getResource("managerViewClasses.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Delete Classes");
+            stage.setScene(new Scene(root, 700 , 350));
+            stage.show();
+        }
+        catch(IOException ex)
+        {
+            ex.printStackTrace();
+        }
+
+    }
 
 
     @FXML
@@ -70,7 +91,7 @@ public class ManagerChoiceController {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("addClass.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Add Class");
-            stage.setScene(new Scene(root, 300 , 300));
+            stage.setScene(new Scene(root, 700 , 350));
             stage.show();
         }
         catch(IOException ex)

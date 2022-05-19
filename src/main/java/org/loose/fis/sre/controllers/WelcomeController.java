@@ -98,7 +98,7 @@ public class WelcomeController {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("memberships.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Memberships");
-            stage.setScene(new Scene(root, 300, 300));
+            stage.setScene(new Scene(root, 700 , 350));
             stage.show();
         }
         catch(IOException ex)
@@ -123,7 +123,7 @@ public class WelcomeController {
 
             Stage stage = new Stage();
             stage.setTitle("Requests status");
-            stage.setScene(new Scene(root, 300, 300));
+            stage.setScene(new Scene(root, 700 , 350));
             stage.show();
         }
         catch(IOException ex)

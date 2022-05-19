@@ -22,7 +22,7 @@ public class StartPageController {
         root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Register");
-        stage.setScene(new Scene(root, 300 , 300));
+        stage.setScene(new Scene(root, 700 , 350));
         stage.show();
     }
     catch(IOException ex)
@@ -42,7 +42,7 @@ public class StartPageController {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("logIn.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Login");
-            stage.setScene(new Scene(root, 300, 300));
+            stage.setScene(new Scene(root, 700 , 350));
             stage.show();
         }
         catch(IOException ex)
