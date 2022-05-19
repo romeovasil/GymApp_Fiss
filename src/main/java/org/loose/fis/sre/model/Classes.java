@@ -7,6 +7,7 @@ import java.util.Objects;
 public class Classes {
     @Id
     private int id;
+    private static int idMax;
     private String name;
     private String day;
     private String time;
@@ -17,8 +18,18 @@ public class Classes {
         this.name = name;
         this.day = day;
         this.time = time;
+        this.idMax=0;
 
     }
+    public static  void setIdMax(int id)
+    {
+        idMax=id;
+    }
+    public static int getIdMax()
+    {
+       return idMax;
+    }
+
     public  Classes(){
 
     }
@@ -46,6 +57,9 @@ public class Classes {
         if (day != null ? !day.equals(clasa.day) : clasa.day != null) return false;
         return time != null ? time.equals(clasa.time) : clasa.time == null;
     }
+
+
+
 
     @Override
     public String toString()
