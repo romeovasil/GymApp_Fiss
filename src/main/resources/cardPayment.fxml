@@ -31,7 +31,7 @@
     <Text fx:id="successMessage" GridPane.columnIndex="1" GridPane.rowIndex="9" />
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
-        <Button onAction="#handleAddCardAction" prefHeight="26.0" prefWidth="156.0" text="Add card and pay" />
+        <Button fx:id="addCardButton" onAction="#handleAddCardAction" prefHeight="26.0" prefWidth="156.0" text="Add card and pay" />
     </HBox>
    <Label text="Pay membership:" />
    <Label fx:id="labelMembership" GridPane.columnIndex="1" />

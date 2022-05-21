@@ -19,7 +19,7 @@
     <Text fx:id="registrationMessage" GridPane.columnIndex="2" GridPane.rowIndex="7" />
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button onAction="#payMembership" text="Pay Membership" />
+        <Button fx:id="payButton" onAction="#payMembership" text="Pay Membership" />
     </HBox>
    <columnConstraints>
       <ColumnConstraints />

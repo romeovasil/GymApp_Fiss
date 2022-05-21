@@ -147,7 +147,7 @@ public class WelcomeController {
             checkoutController.setUsername(this.username);
             checkoutController.setListView();
             Stage stage = new Stage();
-            stage.setTitle("Memberships");
+            stage.setTitle("Checkout");
             stage.setScene(new Scene(root, 700 , 350));
             stage.show();
         }
