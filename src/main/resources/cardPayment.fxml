@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<GridPane alignment="center" hgap="10" prefHeight="400" prefWidth="600" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.sre.controllers.CardPaymentController">
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+    </padding>
+
+
+    <Label text="Card Number:" GridPane.rowIndex="2" />
+
+    <TextField fx:id="numberField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+    <Label text="Name on card:" GridPane.rowIndex="3" />
+
+    <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+    <Label text="CVV:" GridPane.rowIndex="4" />
+
+    <TextField fx:id="cvvField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+    <Text fx:id="successMessage" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <Button onAction="#handleAddCardAction" prefHeight="26.0" prefWidth="156.0" text="Add card and pay" />
+    </HBox>
+   <Label text="Pay membership:" />
+   <Label fx:id="labelMembership" GridPane.columnIndex="1" />
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
