@@ -12,6 +12,7 @@ import org.loose.fis.sre.model.User;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static org.loose.fis.sre.services.FileSystemService.getPathToFile;
@@ -56,7 +57,9 @@ public class UserService {
        if (role.getSelectionModel().isEmpty())
             throw new MissingRoleException();
     }
-
+    public static List<User> getAllUsers(){
+        return userRepository.find().toList();
+    }
 
     public static void checkValidUser(String username, String password , String role) throws InvalidAccountException {
         int ok=0;
@@ -77,7 +80,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
