@@ -32,7 +32,18 @@ public class CardPaymentController {
 
         try {
             UserService.checkValidCard(number, name, date, cvv);
-            successMessage.setText("The membership is paid/");
+            int days = 0;
+            int price = 0;
+            if(membership.contains("year")) {
+                days = 365;
+                price = 1200;
+            }
+            else {
+                days = Integer.parseInt(membership.substring(0, 2).split(" ")[0]);
+                price = Integer.parseInt(membership.split(" ")[3]);
+            }
+            UserService.updateMembership(this.username, days, membership);
+            successMessage.setText("The membership is paid - " + price + " RON");
         } catch (IncorrectCardDataException e){
             successMessage.setText(e.getMessage());
         }

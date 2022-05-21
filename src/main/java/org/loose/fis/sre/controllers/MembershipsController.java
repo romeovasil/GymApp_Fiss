@@ -54,7 +54,6 @@ public class MembershipsController {
     public void setDaysLeft() {
         this.nrDays = UserService.getDaysLeft(this.username);
         this.currentDays.setText(Integer.toString(nrDays));
-        this.daysLeft.setText(Integer.toString(nrDays));
     }
 
 

@@ -82,7 +82,7 @@ public class UserService {
             valid = false;
             System.out.println(date);
         }
-        if(!cvv.matches("[0-3]{3}")){
+        if(!cvv.matches("[0-9]{3}")){
             valid = false;
             System.out.println(cvv);
         }
