@@ -35,8 +35,6 @@ public class RegistrationController {
             UserService.checkPassword(passwordField.getText());
             UserService.checkRole(role);
             UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
-            MembershipsController membershipsController = new MembershipsController();
-            membershipsController.setUsername(usernameField.getText());
             registrationMessage.setText("Account created successfully!");
         } catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());

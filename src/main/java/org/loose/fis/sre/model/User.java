@@ -12,21 +12,35 @@ public class User {
     private String role;
     private List<String> statusList ;
     private int daysLeft;
+    private List<Integer> memberships;
 
     public User(int daysLeft ,String username, String password, String role) {
         this.username = username;
         this.password = password;
         this.role = role;
-        daysLeft=daysLeft;
+        this.daysLeft = daysLeft;
         statusList = new ArrayList<>();
+        memberships = new ArrayList<>();
     }
 
     public User() {
     }
 
+    public List<Integer> getMemberships() {
+        return memberships;
+    }
+
+    public void setMemberships(List<Integer> memberships) {
+        this.memberships = memberships;
+    }
+
+    public void setDaysLeft(int daysLeft) {
+        this.daysLeft = daysLeft;
+    }
+
     public void addStatus(String status)
     {
-            statusList.add(status);
+        statusList.add(status);
     }
 
     public String getUsername() {

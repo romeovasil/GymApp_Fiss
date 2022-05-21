@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
-          vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="org.loose.fis.sre.controllers.MembershipsController">
+
+<GridPane alignment="center" hgap="10" prefHeight="400" prefWidth="600" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.sre.controllers.MembershipsController">
     <padding>
-        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
 
 
 
-    <Label text="Membership:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label text="New membership:" GridPane.rowIndex="2" />
 
-    <ChoiceBox fx:id="membership" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <ChoiceBox fx:id="membership" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
     </ChoiceBox>
 
-    <Label text="Your membership will expire in:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <Text fx:id="daysLeft" text="0"  GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Label text="Your membership will expire in:" GridPane.rowIndex="4" />
+    <Text fx:id="daysLeft" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <Button mnemonicParsing="false" onAction="#onAddClick" prefHeight="26.0" prefWidth="151.0" text="Add to cart" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+    <Label fx:id="successMessage" GridPane.rowIndex="5" />
+    <Label text="Current membership:" GridPane.rowIndex="1" />
+    <Text fx:id="currentDays" layoutX="323.0" layoutY="245.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
 
 </GridPane>
