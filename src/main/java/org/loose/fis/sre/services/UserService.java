@@ -36,7 +36,27 @@ public class UserService {
             if (Objects.equals(username, user.getUsername()))
                 return user.getDaysLeft();
         }
-            return 0;
+        return 0;
+    }
+
+    public static void updateMembership(String username, int daysLeft, int price){
+        User u;
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername())) {
+                u = user;
+                int currDays = u.getDaysLeft();
+                u.setDaysLeft(daysLeft + currDays);
+                List<Integer> memberships = u.getMemberships();
+                if(daysLeft > 0){
+                    memberships.remove(price);
+                    u.setMemberships(memberships);
+                } else {
+                    memberships.add(price);
+                    u.setMemberships(memberships);
+                }
+                userRepository.update(u);
+            }
+        }
     }
 
     @FXML
@@ -47,14 +67,14 @@ public class UserService {
 
     public static  void checkUsername(String username) throws MissingUsernameException {
         if ( username.equals("") )
-                throw new MissingUsernameException();
+            throw new MissingUsernameException();
     }
     public static  void checkPassword(String password) throws BadPasswordException{
         if (password.length()<=3 )
             throw new BadPasswordException();
     }
     public static  void checkRole(ChoiceBox role) throws MissingRoleException{
-       if (role.getSelectionModel().isEmpty())
+        if (role.getSelectionModel().isEmpty())
             throw new MissingRoleException();
     }
     public static List<User> getAllUsers(){
@@ -90,9 +110,6 @@ public class UserService {
         return new String(hashedPassword, StandardCharsets.UTF_8)
                 .replace("\"", ""); //to be able to save in JSON format
     }
-
-
-
 
     private static MessageDigest getMessageDigest() {
         MessageDigest md;
