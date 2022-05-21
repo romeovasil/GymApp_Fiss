@@ -5,10 +5,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import org.loose.fis.sre.model.User;
@@ -20,6 +17,7 @@ public class MembershipsController {
 
     public Label successMessage;
     public Text currentDays;
+    public Button addButton;
     private String username;
     @FXML
     private ChoiceBox<String> membership;

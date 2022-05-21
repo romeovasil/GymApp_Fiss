@@ -23,7 +23,7 @@
 
     <Label text="Your membership will expire in:" GridPane.rowIndex="4" />
     <Text fx:id="daysLeft" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-    <Button mnemonicParsing="false" onAction="#onAddClick" prefHeight="26.0" prefWidth="151.0" text="Add to cart" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+    <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAddClick" prefHeight="26.0" prefWidth="151.0" text="Add to cart" GridPane.columnIndex="1" GridPane.rowIndex="5" />
     <Label fx:id="successMessage" GridPane.rowIndex="5" />
     <Label text="Current membership:" GridPane.rowIndex="1" />
     <Text fx:id="currentDays" layoutX="323.0" layoutY="245.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
