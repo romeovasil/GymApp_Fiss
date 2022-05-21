@@ -70,7 +70,7 @@ public class MembershipsController {
             days = Integer.parseInt(selected.substring(0, 2).split(" ")[0]);
             price = Integer.parseInt(selected.split(" ")[3]);
         }
-        UserService.updateMembership(username, 0, price);
+        UserService.updateMembership(username, 0, selected);
         successMessage.setText("You have added a membership of " + days + " days for " + price + " RON to the cart");
     }
 

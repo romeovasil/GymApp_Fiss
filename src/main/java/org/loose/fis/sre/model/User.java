@@ -12,7 +12,7 @@ public class User {
     private String role;
     private List<String> statusList ;
     private int daysLeft;
-    private List<Integer> memberships;
+    private List<String> memberships;
 
     public User(int daysLeft ,String username, String password, String role) {
         this.username = username;
@@ -26,11 +26,11 @@ public class User {
     public User() {
     }
 
-    public List<Integer> getMemberships() {
+    public List<String> getMemberships() {
         return memberships;
     }
 
-    public void setMemberships(List<Integer> memberships) {
+    public void setMemberships(List<String> memberships) {
         this.memberships = memberships;
     }
 

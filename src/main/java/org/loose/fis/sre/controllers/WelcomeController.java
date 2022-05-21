@@ -3,6 +3,7 @@ package org.loose.fis.sre.controllers;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -137,5 +138,22 @@ public class WelcomeController {
     }
 
 
-
+    public void handleClickCheckoutAction(ActionEvent actionEvent) {
+        try {
+            Parent root;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/checkout.fxml"));
+            root = loader.load();
+            CheckoutController checkoutController = loader.getController();
+            checkoutController.setUsername(this.username);
+            checkoutController.setListView();
+            Stage stage = new Stage();
+            stage.setTitle("Memberships");
+            stage.setScene(new Scene(root, 700 , 350));
+            stage.show();
+        }
+        catch(IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
 }
