@@ -17,6 +17,10 @@ import static org.loose.fis.sre.services.FileSystemService.getPathToFile;
 public class ReqService {
     private static ObjectRepository<Requests> reqRepository;
 
+    public static List<Requests> getAllReq(){
+        return reqRepository.find().toList();
+    }
+
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("requests11.db").toFile())
