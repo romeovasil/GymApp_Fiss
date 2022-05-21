@@ -67,6 +67,29 @@ public class UserService {
         return null;
     }
 
+    public static void checkValidCard(String number, String name, String date, String cvv) throws IncorrectCardDataException {
+        boolean valid = true;
+
+        if(number.length() != 16) {
+            valid = false;
+            System.out.println(number);
+        }
+        if(name.isEmpty()){
+            valid = false;
+            System.out.println(name);
+        }
+        if(!date.matches("[0-1][0-9]/[0-9][0-9]")){
+            valid = false;
+            System.out.println(date);
+        }
+        if(!cvv.matches("[0-3]{3}")){
+            valid = false;
+            System.out.println(cvv);
+        }
+        if(!valid)
+            throw new IncorrectCardDataException();
+    }
+
     @FXML
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
