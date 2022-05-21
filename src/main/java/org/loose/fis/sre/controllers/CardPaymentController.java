@@ -2,6 +2,7 @@ package org.loose.fis.sre.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -15,6 +16,7 @@ public class CardPaymentController {
     public TextField nameField;
     public TextField numberField;
     public TextField dateField;
+    public Button addCardButton;
 
     private String username;
     private String membership;

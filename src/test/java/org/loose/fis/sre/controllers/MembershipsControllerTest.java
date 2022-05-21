@@ -29,6 +29,7 @@ public class MembershipsControllerTest {
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
         UserService.addUser("a", "aaaa", "client");
+
         Parent root;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/memberships.fxml"));
         root = loader.load();
@@ -43,7 +44,8 @@ public class MembershipsControllerTest {
     void testChooseMembership(FxRobot robot) {
 
         robot.clickOn("#addButton");
-        assertThat(robot.lookup("#successMessage").queryLabeled().getText()).isEqualTo("Please select a membership to add to the cart.");
+        assertThat(robot.lookup("#successMessage").queryLabeled().getText()).
+                isEqualTo("Please select a membership to add to the cart.");
 
         robot.clickOn("#membership");
         robot.type(KeyCode.ENTER);

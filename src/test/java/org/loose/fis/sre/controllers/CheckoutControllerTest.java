@@ -26,6 +26,7 @@ public class CheckoutControllerTest {
         UserService.initDatabase();
         UserService.addUser("a", "aaaa", "client");
         UserService.updateMembership("a", 0, "1 year - 1200 ron");
+
         Parent root;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/checkout.fxml"));
         root = loader.load();
