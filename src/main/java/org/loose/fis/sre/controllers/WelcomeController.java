@@ -93,9 +93,10 @@ public class WelcomeController {
     public void handleClickMembershipsAction() throws IOException {
         try {
             Parent root;
-
-
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("memberships.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/memberships.fxml"));
+            root = loader.load();
+            MembershipsController membershipsController = loader.getController();
+            membershipsController.setUsername(this.username);
             Stage stage = new Stage();
             stage.setTitle("Memberships");
             stage.setScene(new Scene(root, 700 , 350));
