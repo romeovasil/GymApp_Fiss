@@ -70,22 +70,14 @@ public class UserService {
     public static void checkValidCard(String number, String name, String date, String cvv) throws IncorrectCardDataException {
         boolean valid = true;
 
-        if(number.length() != 16) {
+        if(number.length() != 16)
             valid = false;
-            System.out.println(number);
-        }
-        if(name.isEmpty()){
+        if(name.isEmpty())
             valid = false;
-            System.out.println(name);
-        }
-        if(!date.matches("[0-1][0-9]/[0-9][0-9]")){
+        if(!date.matches("[0-1][0-9]/[0-9][0-9]"))
             valid = false;
-            System.out.println(date);
-        }
-        if(!cvv.matches("[0-9]{3}")){
+        if(!cvv.matches("[0-9]{3}"))
             valid = false;
-            System.out.println(cvv);
-        }
         if(!valid)
             throw new IncorrectCardDataException();
     }
