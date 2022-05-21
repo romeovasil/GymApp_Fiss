@@ -58,19 +58,24 @@ public class MembershipsController {
 
 
     public void onAddClick(ActionEvent actionEvent) {
-        String selected = membership.getSelectionModel().getSelectedItem().toString();
-        int days = 0;
-        int price = 0;
-        if(selected.contains("year")) {
-            days = 365;
-            price = 1200;
+        if(daysLeft.getText().equals("0")){
+            successMessage.setText("Please select a membership to add to the cart.");
+        } else {
+            String selected = membership.getSelectionModel().getSelectedItem().toString();
+            int days = 0;
+            int price = 0;
+            if(selected.contains("year")) {
+                days = 365;
+                price = 1200;
+            }
+            else {
+                days = Integer.parseInt(selected.substring(0, 2).split(" ")[0]);
+                price = Integer.parseInt(selected.split(" ")[3]);
+            }
+            UserService.updateMembership(username, 0, selected);
+            successMessage.setText("You have added a membership of " + days + " days for " + price + " RON to the cart");
         }
-        else {
-            days = Integer.parseInt(selected.substring(0, 2).split(" ")[0]);
-            price = Integer.parseInt(selected.split(" ")[3]);
-        }
-        UserService.updateMembership(username, 0, selected);
-        successMessage.setText("You have added a membership of " + days + " days for " + price + " RON to the cart");
+
     }
 
 

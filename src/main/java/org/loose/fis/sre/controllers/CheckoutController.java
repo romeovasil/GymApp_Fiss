@@ -18,6 +18,7 @@ import java.io.IOException;
 public class CheckoutController {
 
     public ListView<String> cart = new ListView<>() ;
+    public Text registrationMessage;
 
     private String username;
     private String selectedMembership;
@@ -37,16 +38,20 @@ public class CheckoutController {
 
     public void payMembership(ActionEvent actionEvent) {
         try {
-            Parent root;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cardPayment.fxml"));
-            root = loader.load();
-            CardPaymentController cardPaymentController = loader.getController();
-            cardPaymentController.setUsername(this.username);
-            cardPaymentController.setLabel(this.selectedMembership);
-            Stage stage = new Stage();
-            stage.setTitle("Memberships");
-            stage.setScene(new Scene(root, 700 , 350));
-            stage.show();
+            if(selectedMembership == null)
+                registrationMessage.setText("Please select a membership to pay");
+            else {
+                Parent root;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/cardPayment.fxml"));
+                root = loader.load();
+                CardPaymentController cardPaymentController = loader.getController();
+                cardPaymentController.setUsername(this.username);
+                cardPaymentController.setLabel(this.selectedMembership);
+                Stage stage = new Stage();
+                stage.setTitle("Memberships");
+                stage.setScene(new Scene(root, 700 , 350));
+                stage.show();
+            }
         }
         catch(IOException ex)
         {
