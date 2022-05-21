@@ -19,7 +19,9 @@ import static org.loose.fis.sre.services.FileSystemService.getPathToFile;
 
 public class ClassesService {
     private static ObjectRepository<Classes> clasaRepository;
-
+    public static List<Classes> getAllClasses(){
+        return clasaRepository.find().toList();
+    }
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("classes11.db").toFile())
