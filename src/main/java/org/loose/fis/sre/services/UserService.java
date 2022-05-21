@@ -39,24 +39,32 @@ public class UserService {
         return 0;
     }
 
-    public static void updateMembership(String username, int daysLeft, int price){
+    public static void updateMembership(String username, int daysLeft, String memb){
         User u;
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername())) {
                 u = user;
                 int currDays = u.getDaysLeft();
                 u.setDaysLeft(daysLeft + currDays);
-                List<Integer> memberships = u.getMemberships();
+                List<String> memberships = u.getMemberships();
                 if(daysLeft > 0){
-                    memberships.remove(price);
+                    memberships.remove(memb);
                     u.setMemberships(memberships);
                 } else {
-                    memberships.add(price);
+                    memberships.add(memb);
                     u.setMemberships(memberships);
                 }
                 userRepository.update(u);
             }
         }
+    }
+
+    public static List<String> getMemberships(String username){
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername()))
+                return user.getMemberships();
+        }
+        return null;
     }
 
     @FXML
