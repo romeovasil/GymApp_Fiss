@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -17,8 +18,9 @@ import java.io.IOException;
 
 public class CheckoutController {
 
-    public ListView<String> cart = new ListView<>() ;
+    public ListView<String> cart = new ListView<>();
     public Text registrationMessage;
+    public Button payButton;
 
     private String username;
     private String selectedMembership;
@@ -41,6 +43,7 @@ public class CheckoutController {
             if(selectedMembership == null)
                 registrationMessage.setText("Please select a membership to pay");
             else {
+                registrationMessage.setText("You selected " + selectedMembership);
                 Parent root;
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/cardPayment.fxml"));
                 root = loader.load();
