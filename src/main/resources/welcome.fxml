@@ -19,7 +19,7 @@
     <ListView fx:id="luni" layoutY="40 " onMouseClicked="#selectedClass" prefHeight="300" prefWidth="500" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
     <HBox alignment="bottom_right" prefHeight="100" prefWidth="200" spacing="40" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button onAction="#handleClickMembershipsAction" text="Memberships" />
+        <Button id= "but2"  onAction="#handleClickMembershipsAction" text="Memberships" />
     </HBox>
 
 
@@ -27,17 +27,17 @@
 
 
     <HBox alignment="bottom_right" prefHeight="100" prefWidth="200" spacing="40" GridPane.columnIndex="0" GridPane.rowIndex="7">
-        <Button onAction="#handleClickBookTheClass" text="Book the class" />
+        <Button id= "but"  onAction="#handleClickBookTheClass" text="Book the class" />
     </HBox>
     <Text fx:id="reqMessage" GridPane.columnIndex="3" GridPane.rowIndex="9" />
 
 
     <HBox alignment="bottom_right" prefHeight="100" prefWidth="200" spacing="40" GridPane.columnIndex="0" GridPane.rowIndex="9">
-        <Button onAction="#handleClickReqStatus" text="Requests status" />
+        <Button id= "but1" onAction="#handleClickReqStatus" text="Requests status" />
     </HBox>
    <HBox alignment="bottom_right" layoutX="155.0" layoutY="267.0" prefHeight="100" prefWidth="200" spacing="40" GridPane.columnIndex="1" GridPane.rowIndex="7">
       <children>
-         <Button onAction="#handleClickCheckoutAction" prefHeight="26.0" prefWidth="86.0" text="Checkout" />
+         <Button id= "but3" onAction="#handleClickCheckoutAction" prefHeight="26.0" prefWidth="86.0" text="Checkout" />
       </children>
    </HBox>
    <columnConstraints>
