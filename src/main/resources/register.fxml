@@ -28,6 +28,6 @@
 
     <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
     <HBox alignment="bottom_right" spacing="40"  prefHeight="30" prefWidth="20" GridPane.columnIndex="0" GridPane.rowIndex="5">
-        <Button onAction="#handleRegisterAction" text="Register"/>
+        <Button id = "registerButton" onAction="#handleRegisterAction" text="Register"/>
     </HBox>
 </GridPane>
