@@ -15,7 +15,7 @@
     <ListView fx:id="req" layoutY="40 " prefWidth="300" prefHeight="100" GridPane.columnIndex="2" GridPane.rowIndex="2" onMouseClicked="#selectedReq" />
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="4">
-        <Button onAction="#acceptReq" text="Accept"/>
+        <Button  id = "acc" onAction="#acceptReq" text="Accept"/>
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="5" GridPane.rowIndex="4">
         <Button onAction="#declineReq" text="Decline"/>

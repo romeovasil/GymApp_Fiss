@@ -15,9 +15,9 @@
 
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button onAction="#handleClickRegisterAction" text="Register"/>
+        <Button id = "but2" onAction="#handleClickRegisterAction" text="Register"/>
     </HBox>
     <HBox alignment="bottom_left" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="5">
-        <Button onAction="#handleClickLogInAction" text="Log In"/>
+        <Button id = "but1" onAction="#handleClickLogInAction" text="Log In"/>
     </HBox>
 </GridPane>
