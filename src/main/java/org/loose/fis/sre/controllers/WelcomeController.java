@@ -64,7 +64,10 @@ public class WelcomeController {
     {
         this.username=username;
     }
-
+    public void setSelectedC(String clasa)
+    {
+        this.selectedC=clasa;
+    }
     @FXML
     public void handleClickBookTheClass(){
         try {

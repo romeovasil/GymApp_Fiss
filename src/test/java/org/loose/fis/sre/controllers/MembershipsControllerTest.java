@@ -28,7 +28,7 @@ public class MembershipsControllerTest {
         FileSystemService.APPLICATION_FOLDER = ".registration-example";
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
-        UserService.addUser("a", "aaaa", "client");
+        UserService.addUser("abb", "aaaa", "client");
 
         Parent root;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/memberships.fxml"));
